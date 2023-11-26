@@ -1,0 +1,6 @@
+initial-function:
+  handler: src/functions/example-post/lambda.default
+  events:
+    - http:
+        method: post
+        path: /

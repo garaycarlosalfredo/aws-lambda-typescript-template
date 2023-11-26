@@ -1,0 +1,6 @@
+example-get-function:
+  handler: src/functions/example-get/lambda.default
+  events:
+    - http:
+        method: get
+        path: /{greeting}

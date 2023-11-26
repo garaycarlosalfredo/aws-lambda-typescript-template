@@ -1,0 +1,31 @@
+service: lambda-template
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: ${opt:stage, 'dev'}
+  profile: aws-lambda-dev
+  environment:
+    APP_VERSION: ${file(./package.json):version}
+  # httpApi:
+  #   cors: true
+  # iamRoleStatements:
+  #   - Effect: "Allow"
+  #     Action:
+  #       - "dynamodb:GetItem"
+  #     Resource:
+  #       Fn::GetAtt:
+  #         - UserTable
+  #         - Arn
+functions:
+  - ${file(./src/functions/example-post/function.yml)}
+  - ${file(./src/functions/example-get/function.yml)}
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+custom:
+  esbuild:
+    bundle: true
+    minify: false
+
+resources:
+  Resources: ${file(./resources.yml)}
