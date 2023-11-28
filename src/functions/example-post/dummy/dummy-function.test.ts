@@ -1,4 +1,4 @@
-import dummyFunction from "./dummy-function"; // Asegúrate de ajustar la ruta según tu estructura de directorios
+import dummyFunction from "./dummy-function";
 
 describe("texto", () => {
   test("should return 'dummy function execution !!'", async () => {

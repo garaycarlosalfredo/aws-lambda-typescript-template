@@ -28,4 +28,4 @@ custom:
     minify: false
 
 resources:
-  Resources: ${file(./resources.yml)}
+  Resources: ${file(./serverless.resources.yml)}
