@@ -26,9 +26,10 @@ custom:
   esbuild:
     bundle: true
     minify: false
+    sourcemap: true
   serverless-offline:
     httpPort: 6000
-    websocketPort: 6001
-    lambdaPort: 6002
+    # websocketPort: 6000
+    # lambdaPort: 6000
 resources:
   Resources: ${file(./serverless.resources.yml)}
