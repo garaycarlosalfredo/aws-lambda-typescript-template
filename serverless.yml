@@ -1,4 +1,4 @@
-service: lambda-template
+service: lambda-typescript-template
 provider:
   name: aws
   runtime: nodejs16.x

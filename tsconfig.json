@@ -14,10 +14,12 @@
       "@shared/*": ["src/shared/*"],
       "@core/*": ["src/core/*"],
       "@libs/*": ["src/libs/*"],
-      "@functions/*": ["src/functions/*"]
+      "@functions/*": ["src/functions/*"],
+      "@errors": ["src/errors/index.ts"],
+      "@util": ["src/util/index.ts"]
     }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", ".eslintrc.js"],
   "exclude": [
     "node_modules/**/*",
     ".serverless/**/*",

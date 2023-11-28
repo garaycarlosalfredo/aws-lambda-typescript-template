@@ -1,5 +1,6 @@
 example-get-function:
   handler: src/functions/example-get/lambda.default
+  timeout: 600000
   events:
     - http:
         method: get

@@ -1,4 +1,4 @@
-const exampleHandler = async (event, context) => {
+const exampleHandler = async (event, context, c, d) => {
   try {
     const { dummyFunction } = context;
     const { body } = event;
@@ -9,15 +9,7 @@ const exampleHandler = async (event, context) => {
       body: JSON.stringify({ ...bodyObject, dummyMessage }),
     };
   } catch (error) {
-    console.log("error", error);
-    return {
-      statusCode: 500,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({ error: "Internal Server Error" }),
-    };
+    throw error;
   }
 };
 
