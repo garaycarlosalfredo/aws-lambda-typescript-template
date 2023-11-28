@@ -1,2 +1,2 @@
 # aws-lambda-typescript-template
-aws typescript lambda template
+AWS typescript lambda template
