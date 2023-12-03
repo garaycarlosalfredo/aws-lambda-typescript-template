@@ -10,13 +10,29 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: us-west-2
-  stackName: template-service # @NOTE: update to the service name
-  deploymentBucket: acema-serverless
+  stage: ${opt:stage, 'dev'}
+  deploymentBucket: serverless-gca
+  profile: aws-lambda-gca
   versionFunctions: false
+  environment:
+    APP_VERSION: ${file(./package.json):version}
+    SOME_ENV_VARIABLE: '${file(./config/${self:provider.stage}.json):resources.someValue}'
+  httpApi:
+    cors: true
+  # iamRoleStatements:
+  #   - Effect: "Allow"
+  #     Action:
+  #       - "dynamodb:GetItem"
+  #     Resource:
+  #       Fn::GetAtt:
+  #         - UserTable
+  #         - Arn
 
 functions:
   - ${file(./src/functions/example-post/function.yml)}
   - ${file(./src/functions/example-get/function.yml)}
+
+# Resources: ${file(./serverless.resources.yml)}
 
 custom:
   serverless-offline:

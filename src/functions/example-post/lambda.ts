@@ -15,7 +15,7 @@ const httpCreateEventHandler = config => {
   console.log('just an example', config);
   return compose(
     lambdaTryCatch,
-    lambdaFunctionContextInjector({ greeting: dummyFunction }),
+    lambdaFunctionContextInjector({ greeting: dummyFunction, config }),
     lambdaYupValidation({ bodySchema, pathSchema, querySchema })
   )(exampleHandler);
 };

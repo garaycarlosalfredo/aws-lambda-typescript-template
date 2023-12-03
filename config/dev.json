@@ -1,0 +1,12 @@
+{
+    "esbuild": {
+        "minify": false,
+        "sourcemap": true
+    },
+    "aws": {
+        "region": "us-west-2"
+    },
+    "resources": {
+        "someValue": "value-for-test"
+    }
+}

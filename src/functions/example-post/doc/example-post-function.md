@@ -37,7 +37,7 @@ curl --request POST \
 		"statusCode": 400,
 		"data": {
 			"input": {
-				"messages": "dummy message"
+				"messages": "Hello world from Lambda!"
 			}
 		},
 		"stack": "ValidationError: message is a required field..."
