@@ -1,23 +1,19 @@
 const exampleHandler = async (event, context) => {
   try {
     const { dummyFunction } = context;
-    console.log("event", event);
-    const { pathParameters } = event;
-    const dummyMessage = await dummyFunction();
+    console.log('event', event);
+    const { pathParameters, queryStringParameters } = event;
+    const dummyMessageFromFunction = await dummyFunction();
     return {
       statusCode: 200,
-      body: JSON.stringify({ ...pathParameters, dummyMessage }),
+      body: JSON.stringify({
+        dummyMessageFromFunction,
+        pathParameters,
+        queryStringParameters
+      })
     };
   } catch (error) {
-    console.log("error", error);
-    return {
-      statusCode: 500,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({ error: "Internal Server Error" }),
-    };
+    throw new Error('Ups some mistake');
   }
 };
 

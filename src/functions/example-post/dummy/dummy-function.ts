@@ -1,5 +1,5 @@
 const dummyFunction = async () => {
-  const dummy = await "dummy function execution !!";
+  const dummy = await 'dummy function execution !!';
   return dummy;
 };
 

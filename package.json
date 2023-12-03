@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "start": "sls offline --stage dev --param='environment=development'",
+    "start": "sls offline --stage dev",
     "test": "jest --env=node --colors --bail --detectOpenHandles --errorOnDeprecated --passWithNoTests src/"
   },
   "repository": {

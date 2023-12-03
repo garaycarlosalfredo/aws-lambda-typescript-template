@@ -1,5 +1,5 @@
-import { curry } from "ramda";
-import { lambdaYupErrorFormatter } from "../../errors/response/lambda-yup-error-formatter";
+import { curry } from 'ramda';
+import { lambdaYupErrorFormatter } from './util/lambda-yup-error-formatter';
 
 export const lambdaYupValidation = curry(
   async ({ bodySchema, pathSchema, querySchema }, handler, event, context) => {
@@ -19,5 +19,5 @@ export const lambdaYupValidation = curry(
     } catch (error) {
       throw lambdaYupErrorFormatter(error);
     }
-  },
+  }
 );

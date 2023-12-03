@@ -1,10 +1,10 @@
-import { object, string, date } from "yup";
+import { object, string } from 'yup';
 
-let querySchema = object({
-  by: string().required("by is a required query param"),
-}).nullable()
+const querySchema = object({
+  by: string().required('by is a required query param')
+}).nullable();
 
-let pathSchema = object({}).nullable();
+const pathSchema = object({}).nullable();
 
 const bodySchema = object({}).nullable();
 
