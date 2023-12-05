@@ -1,17 +1,13 @@
 {
-  "flow.useNPMPackagedFlow": true,
   "javascript.validate.enable": false,
   "typescript.validate.enable": false,
   "search.exclude": {
     "**/node_modules": true,
-    "**/bower_components": true,
-    "**/build": true,
-    "**/flow-typed": true,
-    "**/scripts": true
+    "**/yarn.lock": true,
+    "**/.esbuild/": true
   },
   "editor.formatOnSave": true,
   "javascript.format.enable": false,
-  //"beautify.ignore": ["**/*.js", "**/*.jsx"],
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#2C3E50",
     "activityBar.activeBorder": "#3498DB",
@@ -31,8 +27,7 @@
     "statusBarItem.remoteBackground": "#34495E",
     "statusBarItem.remoteForeground": "#ECF0F1"
   },
-  "peacock.color": "#007fff",
-  "workbench.editor.enablePreview": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
   "typescript.disableAutomaticTypeAcquisition": true
 }

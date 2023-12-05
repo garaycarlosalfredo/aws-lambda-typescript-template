@@ -23,7 +23,6 @@
   "exclude": [
     "node_modules/**/*",
     ".serverless/**/*",
-    "_warmup/**/*",
     ".vscode/**/*"
   ],
   "ts-node": {
