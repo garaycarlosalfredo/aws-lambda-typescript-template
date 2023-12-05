@@ -1,49 +1,34 @@
 service: lambda-typescript-template
-frameworkVersion: "3"
+frameworkVersion: '3'
 
 package:
   individually: true
   patterns:
-    - "!node_modules/**"
+    - '!node_modules/**'
 
 provider:
   name: aws
-  runtime: nodejs20.x
-  stage: ${opt:stage, 'dev'}
-  deploymentBucket: ${opt:stage}-serverless-gca
-  profile: aws-lambda-gca
+  runtime: nodejs18.x
+  region: us-west-2
+  stackName: template-service # @NOTE: update to the service name
+  deploymentBucket: acema-serverless
   versionFunctions: false
-  environment:
-    APP_VERSION: ${file(./package.json):version}
-  # httpApi:
-  #   cors: true
-  # iamRoleStatements:
-  #   - Effect: "Allow"
-  #     Action:
-  #       - "dynamodb:GetItem"
-  #     Resource:
-  #       Fn::GetAtt:
-  #         - UserTable
-  #         - Arn
 
 functions:
   - ${file(./src/functions/example-post/function.yml)}
   - ${file(./src/functions/example-get/function.yml)}
 
+custom:
+  serverless-offline:
+    httpPort: 4000 # @NOTE: update to the service port
+    noPrependStageInUrl: true
+    # printOutput: true
+  esbuild:
+    bundle: true
+    platform: 'node'
+    minify: true # @NOTE: set to 'false' for development
+    sourcemap: false # @NOTE: set to 'true' for development
+
 plugins:
   - serverless-esbuild
   - serverless-offline
-
-custom:
-  esbuild:
-    bundle: true
-    minify: false
-    sourcemap: true
-
-  serverless-offline:
-    httpPort: 6000
-    # websocketPort: 6000
-    # lambdaPort: 6000
-
-resources:
-  Resources: ${file(./serverless.resources.yml)}
