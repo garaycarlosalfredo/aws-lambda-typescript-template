@@ -1,0 +1,3 @@
+### Greetings from lambda
+GET http://localhost:4000/hello-from-lambda
+Content-Type: application/json

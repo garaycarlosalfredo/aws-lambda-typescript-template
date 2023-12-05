@@ -1,4 +1,4 @@
-# Documentation of example-post-function
+# Example POST Function
 
 ## Summary
 
@@ -10,26 +10,20 @@ Endpoint verify if in the body request is the prop "message" if it is not presen
 
 ..good to have links to docs, request and response info.
 
-## Success example:
-
-### request:
+## RQ/RS example:
 
 ```
 curl --request POST \
-  --url http://localhost:6000/dev \
+  --url http://localhost:4000 \
   --header 'Content-Type: application/json' \
-  --data '{
-	"message": "dummy message"
-}'
+  --data '{ "message": "Hello world from Lambda!" }'
 ```
-
-### response:
 
 ```
 {
 	"dummyMessage": "dummy function execution !!",
 	"body": {
-		"message": "dummy message"
+		"message": "Hello world from Lambda!"
 	}
 }
 ```

@@ -1,4 +1,4 @@
-# Documentation of example-get-function
+# Example GET Function
 
 ## Summary
 
@@ -10,17 +10,12 @@ Endpoint verify if in the query param request is the prop "by" if it is not pres
 
 ..good to have links to docs, request and response info.
 
-## Success example:
-
-#request:
+## RQ/RS example:
 
 ```
 curl --request GET \
-  --url 'http://localhost:6000/dev/Hello?by=someone' \
-  --header 'User-Agent: insomnia/8.4.5'
+  --url 'http://localhost:4000/Hello?by=someone' \
 ```
-
-### response:
 
 ```
 {
