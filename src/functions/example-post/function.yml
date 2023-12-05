@@ -1,6 +1,7 @@
-initial-function:
+example-post:
   handler: src/functions/example-post/lambda.default
+  description: Greetings from lambda
   events:
     - http:
-        method: post
         path: /
+        method: POST

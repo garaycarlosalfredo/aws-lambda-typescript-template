@@ -1,7 +1,7 @@
-example-get-function:
+example-get:
   handler: src/functions/example-get/lambda.default
-  timeout: 600000
+  description: Greetings from lambda
   events:
     - http:
-        method: get
         path: /{greeting}
+        method: GET
