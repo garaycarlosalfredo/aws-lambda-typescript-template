@@ -1,11 +1,9 @@
-import { object, string, date } from "yup";
+import { object, string } from 'yup';
 
-let querySchema = object({}).nullable();
-
-let pathSchema = object({}).nullable();
-
+const querySchema = object({}).nullable();
+const pathSchema = object({}).nullable();
 const bodySchema = object({
-  message: string().required(),
+  message: string().required()
 }).required();
 
 export { querySchema, pathSchema, bodySchema };

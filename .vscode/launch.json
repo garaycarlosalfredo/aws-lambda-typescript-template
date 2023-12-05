@@ -14,18 +14,6 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/node_modules/.bin/sls",
-      "args": ["offline", "start", "--environment", "integration"],
-      "env": {
-        "AWS_REGION_CONF": "us-west-1",
-        "IS_OFFLINE": "true",
-        "NODE_ENV": "integration"
-      }
-    },
-    {
-      "type": "node",
-      "request": "launch",
       "name": "Trigger hello function",
       "sourceMaps": true,
       "trace": true,
@@ -37,13 +25,12 @@
         "invoke",
         "local",
         "-f",
-        "hello",
+        "example-get-function",
         "--path",
-        "events/hello.json",
+        "mocks/example-get-function-event.json",
         "--stage",
         "development"
       ],
-      // "runtimeArgs": ["--experimental-modules", "--experimental-json-modules"],
       "env": {
         "NODE_ENV": "development"
       }
@@ -60,11 +47,7 @@
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": [
-        "${workspaceFolder}/node_modules/.bin/jest",
-        "${relativeFile}",
-        "--runInBand"
-      ],
+      "args": ["${workspaceFolder}/node_modules/.bin/jest", "${relativeFile}", "--runInBand"],
       "console": "integratedTerminal",
       "windows": {
         "program": "${workspaceFolder}/node_modules/jest/bin/jest"

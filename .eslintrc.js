@@ -1,78 +1,64 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: "./tsconfig.json",
+    project: './tsconfig.json'
   },
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "plugin:jsdoc/recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
+    'plugin:jsdoc/recommended',
+    'plugin:prettier/recommended',
+    'plugin:ramda/recommended'
   ],
-  plugins: [
-    "ramda",
-    "@typescript-eslint",
-    "prettier",
-    "import",
-    "sort-destructure-keys",
-  ],
+  plugins: ['ramda', '@typescript-eslint', 'prettier', 'import', 'sort-destructure-keys'],
   rules: {
-    "@typescript-eslint/naming-convention": "error",
-    curly: "error",
-    "@typescript-eslint/no-explicit-any": "error",
-    "import/no-named-as-default": "error",
-    "@typescript-eslint/no-empty-interface": [
-      "warn",
+    // Misc
+    curly: 'error',
+
+    // TypeScript
+    '@typescript-eslint/naming-convention': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-empty-interface': ['warn', { allowSingleExtends: true }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
       {
-        allowSingleExtends: true,
-      },
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_'
+      }
     ],
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
-        caughtErrorsIgnorePattern: "^_",
-      },
-    ],
-    "sort-imports": [
-      "error",
+
+    // Import
+    'import/no-named-as-default': 'error',
+    'import/no-unresolved': 'error',
+    'sort-imports': [
+      'error',
       {
         ignoreCase: false,
         ignoreDeclarationSort: true,
         ignoreMemberSort: false,
-        memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
-        allowSeparatedGroups: false,
-      },
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+        allowSeparatedGroups: true
+      }
     ],
-    "import/no-unresolved": "error",
-    "import/order": [
-      "error",
+    'import/order': [
+      'error',
       {
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          ["sibling", "parent"],
-          "index",
-          "unknown",
-        ],
-        // "newlines-between": "always",
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
-        },
-      },
+        groups: ['builtin', 'external', 'internal', ['sibling', 'parent'], 'index', 'unknown'],
+        alphabetize: { order: 'asc', caseInsensitive: true }
+      }
     ],
-    "sort-destructure-keys/sort-destructure-keys": 2,
+
+    // Sort destructure keys
+    'sort-destructure-keys/sort-destructure-keys': 2
   },
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       typescript: {
-        project: "./tsconfig.json",
-      },
-    },
-  },
+        project: './tsconfig.json'
+      }
+    }
+  }
 };

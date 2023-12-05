@@ -12,18 +12,17 @@
     "baseUrl": ".",
     "paths": {
       "@shared/*": ["src/shared/*"],
-      "@core/*": ["src/core/*"],
       "@libs/*": ["src/libs/*"],
       "@functions/*": ["src/functions/*"],
-      "@errors": ["src/errors/index.ts"],
-      "@util": ["src/util/index.ts"]
+      "@core/*": ["src/core/*"],
+      "@util": ["src/util/index.ts"],
+      "@config/*": ["src/config/*"]
     }
   },
   "include": ["src/**/*.ts", ".eslintrc.js"],
   "exclude": [
     "node_modules/**/*",
     ".serverless/**/*",
-    "_warmup/**/*",
     ".vscode/**/*"
   ],
   "ts-node": {
